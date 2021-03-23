@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  resources :questions
+  resources :questions, only: [:show, :index, :new, :create]
+
   root 'welcome#index'
   get 'questions/new'
 
