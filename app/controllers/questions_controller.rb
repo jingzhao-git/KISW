@@ -1,5 +1,7 @@
 
 class QuestionsController < ApplicationController
+    before_action :set_question, only: [:show, :edit, :update, :destroy]
+
     def new
 
         @question = Question.new
@@ -7,12 +9,11 @@ class QuestionsController < ApplicationController
     end
 
     def edit
-        @question = Question.find(params[:id])
     end
 
 
     def create
-        @question = Question.new(params.require(:question).permit(:title, :text))
+        @question = Question.new(question_params)
     
             if @question.save
                 flash[:notice] = "Question was created successfully."
@@ -25,8 +26,8 @@ class QuestionsController < ApplicationController
     end
 
     def update
-        @question = Question.find(params[:id])
-        if @question.update(params.require(:question).permit(:title, :text))
+        if @question.update(question_params)
+
             flash[:notice] = "Question was updated successfully."
             redirect_to @question
         else
@@ -34,7 +35,6 @@ class QuestionsController < ApplicationController
         end
     end
     def show
-        @question = Question.find(params[:id])
     end
 
     def index
@@ -42,9 +42,18 @@ class QuestionsController < ApplicationController
     end
 
     def destroy
-        @question = Question.find(params[:id])
         @question.destroy
     
         redirect_to questions_path
     end
+
+    private
+    def set_question
+      @question = Question.find(params[:id])
+    end
+  
+    def question_params
+      params.require(:question).permit(:title, :text)
+    end
+  
 end
