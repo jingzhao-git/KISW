@@ -6,6 +6,9 @@ class QuestionsController < ApplicationController
 
     end
 
+    def edit
+        @question = Question.find(params[:id])
+    end
 
 
     def create
@@ -21,6 +24,15 @@ class QuestionsController < ApplicationController
 
     end
 
+    def update
+        @question = Question.find(params[:id])
+        if @question.update(params.require(:question).permit(:title, :text))
+            flash[:notice] = "Question was updated successfully."
+            redirect_to @question
+        else
+            render 'edit'
+        end
+    end
     def show
         @question = Question.find(params[:id])
     end

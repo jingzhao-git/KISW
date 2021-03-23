@@ -11,7 +11,9 @@
         <td><%= question.title %></td>
         <td><%= question.text %></td>
         <td><%= link_to 'Show', question_path(question) %></td>
+        <td><%= link_to 'Edit', edit_question_path(question) %></td>
+
     </tr>
-  <% end %>
+<% end %>
 </table>
 
