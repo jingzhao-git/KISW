@@ -9,9 +9,11 @@ class QuestionsController < ApplicationController
 
 
     def create
-        @question = Question.new(params.require(:question).permit(:title, :description))
+        @question = Question.new(params.require(:question).permit(:title, :text))
     
             if @question.save
+                flash[:notice] = "Question was created successfully."
+
                 redirect_to @question
             else
                 render 'new'

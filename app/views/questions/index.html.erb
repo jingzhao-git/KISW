@@ -9,9 +9,9 @@
 <% @questions.each do |question| %>
     <tr>
         <td><%= question.title %></td>
-        <td><%= question.description %></td>
+        <td><%= question.text %></td>
         <td><%= link_to 'Show', question_path(question) %></td>
     </tr>
-<% end %>
+  <% end %>
 </table>
 
