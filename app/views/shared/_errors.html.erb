@@ -1,0 +1,12 @@
+<% if @question.errors.any? %>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading">Please double check if you have made the following errors:</h4>
+    <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+ 
+  </div>
+  
+<% end %> 
