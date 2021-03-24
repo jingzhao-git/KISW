@@ -1,49 +1,53 @@
-    @import 'bootstrap/dist/css/bootstrap';
-    .navbar {
-        background-color: #588157 !important;
-    }
-    
-    .nav-link {
-        color: white !important;
-    }
-    
-    #logo {
-        float: left;
-        font-size: 1.7em;
-        color: #fff;
-        text-transform: uppercase;
-        letter-spacing: -1px;
-        font-weight: bold;
-    }
-    
-    #home-container {
-        margin-top: 25px;
-    }
-    
-    .jumbotron {
-        background-image: asset-url('laptop.jpeg');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 600px;
-    }
-    
-    .jumbotron form {
-        display: inline-block;
-        text-align: center;
-        padding-top: 90px;
-    }
-    
-    html,
-    body {
-        height: 100%;
-    }
-    
-    #page-content {
-        flex: 1 0 auto;
-        background-color: #dad7cd;
-    }
-    
-    #sticky-footer {
-        flex-shrink: none;
-    }
+@import 'bootstrap/dist/css/bootstrap';
+.navbar {
+    background-color: #588157 !important;
+}
+
+.navbar li a :hover {
+    text-decoration: underline !important;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#home-container {
+    margin-top: 25px;
+}
+
+.jumbotron {
+    background-image: asset-url('laptop.jpeg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+
+.jumbotron form {
+    display: inline-block;
+    text-align: center;
+    padding-top: 90px;
+}
+
+.btn-outline-success {
+    background: #fff;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+    background-color: #dad7cd;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+}

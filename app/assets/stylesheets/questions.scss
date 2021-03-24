@@ -1,3 +1,61 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#page-content {
+    color: #746355
+}
+
+.d-flex {
+    background-color: #dad7cd;
+}
+
+.container {
+    background-color: #dad7cd;
+}
+
+.card-header {
+    background-color: #a3b18a
+}
+
+.card-footer {
+    background-color: #a3b18a
+}
+
+.btn-outline-success {
+    color: #588157;
+    border-color: #588157
+}
+
+.btn-outline-success:hover {
+    background-color: #588157
+}
+
+.btn-outline-info {
+    color: #44a1a0;
+    border-color: #44a1a0
+}
+
+.btn-outline-info:hover {
+    background-color: #44a1a0
+}
+
+.btn-outline-danger {
+    color: #f0a202;
+    border-color: #f0a202
+}
+
+.btn-outline-danger:hover {
+    background-color: #f0a202
+}
+
+.col-10 .col-2 .rounded {
+    background-color: #a3b18a
+}
+
+.bg-info {
+    background-color: #a3b18a !important
+}
+
+.text-info {
+    color: #746355 !important
+}
