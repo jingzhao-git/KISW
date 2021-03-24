@@ -11,9 +11,9 @@
   </head>
 
     <body class="d-flex flex-column">
-      <% if controller_name != 'welcome_controller' && action_name != 'index'  %>
+      <% unless controller_name == 'welcome_controller' && action_name == 'index'  %>
       <%= render 'layouts/navigation' %>
-      <% end %>
+      <%end%>
     <%= render 'layouts/messages' %>
     <%= yield %>
 
