@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  resources :answers
+  resources :catagories
+  devise_for :users
   get 'welcome/index'
-  resources :questions, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  resources :questions do
+    collection do
+      get :my_questions
+    end
+  end
 
   root 'welcome#index'
   get 'questions/new'

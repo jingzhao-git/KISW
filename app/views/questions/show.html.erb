@@ -11,15 +11,34 @@
           </div>
           <div class="card-body">
             <div class="card-text text-left"><%= simple_format(@question.text) %></div>
+            <% if @question.user_id == current_user.id %>
             <%= link_to "Edit", edit_question_path(@question), class: "btn btn-outline-info" %>
             <%= link_to "Delete", question_path(@question), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure to delete this question？🤔"} %>
+            <% end %>
+            <%= link_to 'Back', questions_path, class: 'btn btn-outline-info' %>
+          </div>
+          <hr>
+          <div class='text-left card-body'>
+          <%= form_with(model: @answer, class: "form-group", local: false) do |f| %>
+            Your Answer: <%= f.text_area :content, rows:2, class: "form-control shadow rounded", placeholder: "Please submit an answer🤓", required: true %>
+             <br>
+            Image: <br><%= f.file_field :image, style: 'color: black;' %>
+            <div class='text-right'>
+            <%= f.hidden_field :question_id, value: @question.id %>
+            <%= f.submit "提交", class: 'btn btn-info btn-xs', style: 'max-width: 70px; padding: 0; margin: 10px; max-height: 30px;'  %>
+            </div>
+          <% end %>
+          <hr>
+          Answers:
+          <ul id="answers_div" style="height: 500px; overflow: auto;"><%= render partial: 'answer', collection: @answers %></ul>
+
           </div>
           <div class="card-footer text-muted">
-            <small>Created <%= time_ago_in_words(@question.created_at) %> ago, 
+            <small>Created <%= time_ago_in_words(@question.created_at) %> ago,
             edited <%= time_ago_in_words(@question.updated_at) %> ago</small>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div> 
+</div>

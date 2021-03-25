@@ -8,14 +8,18 @@
             <div class="card-header font-italic">
             </div>
             <div class="card-body">
-            <h5 class="card-title"><%= link_to question.title, question_path(question), class: "text-success" %></h5>
-            <p class="card-text"><%= truncate(question.text, length: 100) %></p>
+            <h5 class="card-title">Title: <%= link_to question.title, question_path(question), class: "text-success" %></h5>
+            <p class="card-title">Author: <%= question.user.email %></p>
+            <p class="card-text">Catagory: <%= question.catagory.name %></p>
+            <p class="card-text">Content Preview: <%= truncate(question.text, length: 100) %></p>
             <%= link_to "View", question_path(question), class: "btn btn-outline-success" %>
+            <% if question.user_id == current_user.id %>
             <%= link_to "Edit", edit_question_path(question), class: "btn btn-outline-info" %>
             <%= link_to "Delete", question_path(question), class: "btn btn-outline-danger", method: :delete, data: {confirm: "😨Are you sure to delete this question permanently?"} %>
+            <% end %>
             </div>
             <div class="card-footer text-muted">
-            <small>Created <%= time_ago_in_words(question.created_at) %> ago, 
+            <small>Created <%= time_ago_in_words(question.created_at) %> ago,
             edited <%= time_ago_in_words(question.updated_at) %> ago</small>
             </div>
         </div>

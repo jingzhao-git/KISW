@@ -13,3 +13,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "bootstrap"
+
+window.jQuery = $;
+window.$ = $;

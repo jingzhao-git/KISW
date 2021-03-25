@@ -6,11 +6,11 @@
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    
+
         <li class="nav-item active">
         <%= link_to 'New Question', new_question_path , class: "nav-link" %>
         </li>
-        
+
         <li class="nav-item">
             <%= link_to "Raised Questions", questions_path, class: "nav-link" %>
         </li>
@@ -19,10 +19,10 @@
         My Questions & Answers
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "Questions", questions_path, class: "dropdown-item" %>
+            <%= link_to "My Questions", questions_path(my_quesstion: true), class: "dropdown-item" %>
 
         <div class="dropdown-divider"></div>
-            <%= link_to "Questions", questions_path, class: "dropdown-item" %>
+            <%= link_to "My Answers", questions_path(my_answer: true), class: "dropdown-item" %>
         </div>
         </li>
         <li class="nav-item">
@@ -31,7 +31,17 @@
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="What's your question?" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
     </form>
+    <ul class="navbar-nav ">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.email %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Logout", destroy_user_session_path, method: 'delete', class: "dropdown-item" %>
+            </div>
+        </li>
+    </ul>
   </div>
 </nav>

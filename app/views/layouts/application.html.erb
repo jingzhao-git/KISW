@@ -14,7 +14,9 @@
       <% unless controller_name == 'welcome' && action_name == 'index'  %>
       <%= render 'layouts/navigation' %>
       <%end%>
-    <%= render 'layouts/messages' %>
+      <div id="flash_div">
+        <%= render 'layouts/messages' %>
+      </div>
     <%= yield %>
 
   </body>

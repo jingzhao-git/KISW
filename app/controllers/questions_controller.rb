@@ -13,8 +13,8 @@ class QuestionsController < ApplicationController
 
 
     def create
-        @question = Question.new(question_params)
-    
+        @question = current_user.questions.new(question_params)
+
             if @question.save
                 flash[:notice] = "Question was created successfully."
 
@@ -35,15 +35,24 @@ class QuestionsController < ApplicationController
         end
     end
     def show
+        @answer = @question.answers.new
+        @answers = @question.answers.includes(:user)
     end
 
     def index
-        @questions = Question.all
+        if params[:my_quesstion]
+            @questions = current_user.questions
+        elsif params[:my_answer]
+            question_ids = current_user.answers.pluck(:question_id)
+            @questions = Question.where(id: question_ids)
+        else
+            @questions = Question.all
+        end
     end
 
     def destroy
         @question.destroy
-    
+
         redirect_to questions_path
     end
 
@@ -53,7 +62,7 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-        params.require(:question).permit(:title, :text)
+        params.require(:question).permit(:title, :text, :catagory_id, :user_id)
     end
 
 end

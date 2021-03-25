@@ -1,0 +1,4 @@
+$("#answers_div").html("<%= j render partial: 'questions/answer', collection: @answers %>")
+$("#flash_div").html("<%= j render partial: 'layouts/messages' %>")
+$("#answer_content").val('');
+$("#answer_image").val('');
