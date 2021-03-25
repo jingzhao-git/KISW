@@ -12,7 +12,8 @@ Payment function has not been established。
 Because the user's question is not answered in time. Users can take a simpler way to check the answers to similar questions.Especially when the database is large enough, it is impossible to just look at the answers to your own questions.
 Payment part will be finish soon.
 ## A link (URL) to your deployed app (i.e. website)
-https://kisw.herokuapp.com/
+https://kisw.herokuapp.com/users/sign_in
+
 ## A link to your GitHub repository (repo).
 https://github.com/jingzhao-git/KISW
 
