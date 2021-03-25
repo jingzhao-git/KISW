@@ -28,6 +28,11 @@
         <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Purchase History</a>
         </li>
+        <% if current_user.is_admin? %>
+            <li class="nav-item">
+                <%= link_to "Catagory", catagories_path, class: "nav-link" %>
+            </li>
+        <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="What's your question?" aria-label="Search">
