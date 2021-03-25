@@ -64,8 +64,10 @@ The user dreamer registers and logs in to the website via email. After logging i
 ## Explain the different high-level components (abstractions) in your app
 Questions and answers are a more complicated part of the authority, which needs to take into account the different needs and security issues of various users
 ## Detail any third party services that your app will use
-bootsrap, stripe
-## Describe your projects models in terms of the relationships (active record associations) they have with each other
+bootsrap, stripe，erd
+## Describe your projects models in terms of the relationships (active record associations) they have with each other/Discuss the database relations to be implemented in your application/Provide your database schema design
+
+
 Users have a one-to-many relationship to problems.
 
 User to answer is one-to-many
@@ -73,6 +75,10 @@ User to answer is one-to-many
 The answer to the question is a one-to-many relationship
 
 The problem is a many-to-many relationship for payment orders
+![sitemap](mdimage/sitemap.png)
+![ERD](mdimage/ERD.png)
+## Describe the way tasks are allocated and tracked in your project
+The operation of the project is mainly based on the MVC structure. These are all of the controllers used: application, welcome, questions, answers, catagories and users.Among them, welcome is just a home page with no entity relationship, so there is no model. For the entities including quetion, answer, catagory and user, they all have corresponding models. Furthermore, these controllers all have views part. There are also some html.erb files to assist the front end. When the user performs operations on the view interface, such as asking questions, find the corresponding questions_controller through routes. Then use the question model to call the database to add the new question to the database (also the ID and time of the questioner). Finally, the question model returns the data to questions_controller and displays it to the user through quetions.html.erb
 
 
 
